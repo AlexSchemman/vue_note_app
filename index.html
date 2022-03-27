@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang=”en”>
+    <head>
+        <title>Note tracker</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+        <!-- Bootstrap Files -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="open-iconic-bootstrap.css">
+
+        <!-- Bulma Files -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+
+        <!-- Vue and Vuetify Files -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    
+        <!-- Page CSS -->
+        <link rel="stylesheet" href="css/page.css">
+    </head>
+
+    <body>
+        <div id="app">
+            <v-app>
+                <v-main>
+                <div class="hero is-fullheight is-info is-bold">
+                    <div class="hero-body">
+                        <div class="container">
+                            <div class = "h1 has-text-centered py-3">Note Taking App (I think)</div>
+                            <div class="box">
+                                <v-card-text>
+                                    <v-form>
+                                        <v-text-field label="Title" v-model="title"></v-text-field>
+                                        <v-textarea label="Note" v-model="note"></v-textarea>
+                                    </v-form>
+                                    <div class="has-text-right">
+                                        <v-btn color="primary" elevation="2" raised v-on:click="submit" v-on:hover="sortIt">Submit</v-btn>
+                                    </div>
+
+                                    
+                                </v-card-text>
+                            </div>
+                            </div>
+                        </div>
+
+                        <v-container class="my-5">
+                            <v-layout row wrap>
+                            <v-flex xs12 sm6 md4 lg3 v-for="(notepad,index) in inputNote" :key="notepad.title">
+                                <v-card class="ma-2 mw-25">
+
+                                    <div class="has-text-right pa-3">
+                                        <v-btn color="red" elevation="2" raised outlined @click="del(index)" >Delete</v-btn>
+                                    </div>
+
+                                    <div class="h4 pa-3" v-model="noteTitle"> {{index+1}}. {{notepad.title}}</div>
+                                <v-card-text>
+                                    <div class="grey--text" v-model="noteText">{{notepad.note}}</div>
+                                </v-card-text>
+                                </v-card>
+                            </v-flex>
+                            </v-layout>
+                        </v-container>
+
+                    </div>
+                </v-main>
+            </v-app>
+        </div>
+
+                
+        <!-- Vuetify Files -->
+        <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+
+        
+        
+        <!-- Bootstrap Files -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+        <!-- Page JS -->
+        <script src="js/page.js"></script>
+
+
+    </body>
+</html>
