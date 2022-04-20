@@ -17,24 +17,71 @@
     
         <!-- Page CSS -->
         <link rel="stylesheet" href="css/page.css">
+
+        <!-- https://material.io/resources/icons/?style=round -->
+        <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Round" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdb-vue-ui-kit/css/mdb.min.css"/>
+
+        <!-- Font Awesome -->
+        <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        rel="stylesheet"
+        />
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+	    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Roboto:wght@500&display=swap" rel="stylesheet">
+
+        <!-- MDB -->
+        <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.css"
+        rel="stylesheet"
+        />
+
     </head>
 
     <body>
+
+        <header class="p-2 bg-dark">
+            <div class = "h1 has-text-left container" style="color: white">
+                <v-container class="my-5">
+                    <div class="alignleft">
+                <v-icon class="material-icons-round headerText" style="font-size:100%" >edit_note </v-icon> Note Taking App
+                    </div>
+
+                <div class="alignright description pure-text">Stack :
+                    HTML | CSS | Bootstrap
+                    Including Vue.js
+                    Bot by ALXSCH
+                    </div>
+                <div style="clear: both;"></div>
+                </v-container>
+            </div>
+            <!-- Jumbotron -->
+          </header>
+
         <div id="app">
             <v-app>
                 <v-main>
                 <div class="hero is-fullheight is-info is-bold">
                     <div class="hero-body">
                         <div class="container">
-                            <div class = "h1 has-text-centered py-3">Note Taking App (I think)</div>
+                            
+
                             <div class="box">
+                                
                                 <v-card-text>
                                     <v-form>
                                         <v-text-field label="Title" v-model="title"></v-text-field>
                                         <v-textarea label="Note" v-model="note"></v-textarea>
                                     </v-form>
                                     <div class="has-text-right">
-                                        <v-btn color="primary" elevation="2" raised v-on:click="submit" v-on:hover="sortIt">Submit</v-btn>
+                                        <v-btn color="primary" elevation="2" raised v-on:click="submit">Submit</v-btn>
+                                        <v-btn color="Green" elevation="2" raised v-on:click="sortedNotes" v-bind:class="[sortBy === 'title' ? sortDirection : '']">Sort</v-btn>
+
                                     </div>
 
                                     
@@ -48,13 +95,16 @@
                             <v-flex xs12 sm6 md4 lg3 v-for="(notepad,index) in inputNote" :key="notepad.title">
                                 <v-card class="ma-2 mw-25">
 
-                                    <div class="has-text-right pa-3">
-                                        <v-btn color="red" elevation="2" raised outlined @click="del(index)" >Delete</v-btn>
+                                    <div class="has-text-right pa-5">
+                                        <v-btn fab small color="red" elevation="2" outlined @click="del(index)" >
+                                            <v-icon class="material-icons-round">
+                                            clear
+                                            </v-icon></v-btn>
                                     </div>
 
-                                    <div class="h4 pa-3" v-model="noteTitle"> {{index+1}}. {{notepad.title}}</div>
+                                    <div class="h4 px-5"> {{index+1}}. {{notepad.title}}</div>
                                 <v-card-text>
-                                    <div class="grey--text" v-model="noteText">{{notepad.note}}</div>
+                                    <div class="grey--text">{{notepad.note}}</div>
                                 </v-card-text>
                                 </v-card>
                             </v-flex>
@@ -79,6 +129,12 @@
 
         <!-- Page JS -->
         <script src="js/page.js"></script>
+
+        <!-- MDB -->
+        <script
+        type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.11.0/mdb.min.js"
+        ></script>
 
 
     </body>

@@ -1,3 +1,5 @@
+
+
 new Vue({
     el: '#app',
     vuetify: new Vuetify(),
@@ -13,7 +15,12 @@ new Vue({
                 {title : 'title 7', note: 'note 7note 7note 7note 7note 7note 7note 7note 7'},
                 {title : 'title 8', note: 'note 8note 8note 8note 8note 8note 8note 8note 8note 8note 8'},
                 {title : 'title 9', note: 'note 9note 9note 9note 9note 9note 9note 9note 9note 9note 9note 9note 9'}
-            ]
+            ],
+            sortBy : 'title',
+            sortDirection : 'asc',
+            title: '',
+            note: '',
+
         }
     },
     methods:{
@@ -22,22 +29,30 @@ new Vue({
         },
         del: function (index) {
             this.inputNote.splice(index,1);
+        },
+
+        sort: function(s){
+            if(s === this.sortBy) {
+                this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+            }
+            this.sortBy = s;
+        },
+
+        sortedNotes: function(){
+            return this.inputNote.sort((n1,n2) => {
+                let modifier = 1;
+                if(this.sortDirection === 'desc') {modifier = -1;}
+
+                if(n1[this.sortBy] < n2[this.sortBy]) {return -1 * modifier;} 
+                if(n1[this.sortBy] > n2[this.sortBy]) {return 1 * modifier;}
+                return 0;
+            });
         }
         
     },
 
     computed: {
-        sortIt: function() {
-            function compare(a, b) {
-              if (a.title < b.title)
-                return -1;
-              if (a.title > b.title)
-                return 1;
-              return 0;
-            }
-            return this.inputNote.sort(compare);
-        }
-      }
-
+        
+    }
 
 })
