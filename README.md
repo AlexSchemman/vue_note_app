@@ -2,4 +2,4 @@
 A practice note app made using Vue and Vuetify (and Bulma)
 
 Quick View:
-![image](https://user-images.githubusercontent.com/68103489/164297558-0ebe7bd1-140c-42eb-861c-9a66b2f1fe8f.png)
+![image](https://user-images.githubusercontent.com/68103489/164511107-d2df2fbd-37dc-4d12-ac35-819fea783e0a.png)
