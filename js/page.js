@@ -6,15 +6,13 @@ new Vue({
     data(){
         return{
             inputNote:[
-                {title : 'title 1', note: 'note 1note 1note 1note 1note 1note 1note 1note 1note 1note 1note 1note 1note 1note 1note 1'},
-                {title : 'title 2', note: 'note 2note 2note 2note 2note 2note 2note 2note 2note 2note 2note 2note 2note 2note 2note 2note 2note 2'},
-                {title : 'title 3', note: 'note 3note 3note 3note 3note 3note 3note 3note 3note 3note 3note 3note 3note 3note 3'},
-                {title : 'title 4', note: 'note 4note 4note 4note 4note 4note 4note 4note 4note 4note 4note 4note 4note 4note 4note 4note 4'},
-                {title : 'title 5', note: 'note 5note 5note 5note 5note 5note 5note 5note 5note 5note 5note 5'},
-                {title : 'title 6', note: 'note 6note 6note 6note 6note 6note 6note 6note 6note 6'},
-                {title : 'title 7', note: 'note 7note 7note 7note 7note 7note 7note 7note 7'},
-                {title : 'title 8', note: 'note 8note 8note 8note 8note 8note 8note 8note 8note 8note 8'},
-                {title : 'title 9', note: 'note 9note 9note 9note 9note 9note 9note 9note 9note 9note 9note 9note 9'}
+                {title : 'Note Tracker', note: 'Make a note tracker using Vuejs and Vuetify. Additional functions being ability to delete and sort the notes.'},
+                {title : 'Polling Bot', note: 'Make a website using chart.js that polls all the individual alphabets'},
+                {title : 'Movie Lister', note: 'Make a website using OMDB API utlizing get and allowing to search and favourite movies'},
+                {title : 'Infuriating Forms', note: 'Make forms that are...infuriating to fill. Inspired from r/baduibattles'},
+                {title : 'Bug Tracker', note: 'Self Explanatory'},
+                {title : 'Mini Raytracing Field', note: 'Make a small canvas to simulate raytracing. For more details watch The Coding Train'},      
+                {title : 'Portfolio', note: 'Make a website showcasing your graphic design work and web dev work'}
             ],
             sortBy : 'title',
             sortDirection : 'asc',
